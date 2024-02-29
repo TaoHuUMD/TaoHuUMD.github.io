@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="HVTR: Hybrid Volumetric-Textural Rendering for Human Avatars.">
+  <title>HVTR: Hybrid Volumetric-Textural Rendering for Human Avatars</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+
+
+
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">HVTR: <br>Hybrid Volumetric-Textural Rendering <br> for Human Avatars</h1>
+          <h3 class="title is-3 publication-title"> <a href="https://3dvconf.github.io/2022/" target=&ldquo;blank&rdquo;>3DV 2022 </a></h3>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.cs.umd.edu/~taohu/" target=&ldquo;blank&rdquo;>Tao Hu</a><sup>1</sup>,</span> &nbsp;&nbsp;
+            <span class="author-block">
+              Tao Yu<sup>2</sup>,</span>&nbsp;&nbsp;
+            <span class="author-block">
+              Zerong Zheng<sup>2</sup>,
+            </span>&nbsp;&nbsp;
+            <span class="author-block">
+              He Zhang<sup>2</sup>,
+            </span>&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="https://liuyebin.com/" target=&ldquo;blank&rdquo;>Yebin Liu</a><sup>*2</sup>,
+            </span>&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="https://www.cs.umd.edu/~zwicker/" target=&ldquo;blank&rdquo;>Matthias Zwicker</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Maryland, College Park</span> &nbsp;&nbsp;&nbsp;&nbsp;
+			<span class="author-block"><sup>2</sup>Tsinghua University</span>&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2112.10203.pdf"
+                   class="external-link button is-normal is-rounded is-dark" target=&ldquo;blank&rdquo;>
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+	          <!-- PDF Link.
+			  <span class="link-block">
+                <a href="https://arxiv.org/pdf/2112.10203.pdf"
+                   class="external-link button is-normal is-rounded is-dark" target=&ldquo;blank&rdquo;>
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Arxiv</span>
+                </a>
+              </span>
+			  -->
+			  <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=LE0-YpbLlkY"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="static/data/HVTR_Poster.pdf"
+                   class="external-link button is-normal is-rounded is-dark" target=&ldquo;blank&rdquo;>
+                  <span class="icon">
+                      <i class="far fa-image"></i>
+                  </span>
+                  <span>Poster</span>
+                </a>
+              </span>
+
+			 <span class="link-block">
+                <a href="https://www.cs.umd.edu/~taohu/hvtr/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+             </span>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+		 <video id="teaser" autoplay controls muted loop height="100%">
+				<source src="static/data/pipeline.mp4"
+						type="video/mp4">
+			  </video>
+      <h2 class="subtitle has-text-centered">
+        Key idea of HVTR: two-stage hybrid rendering.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Abstract</h2>
+
+
+
+        <div class="content has-text-justified">
+          <p style="font-size: 14pt;">
+
+            We propose a novel neural rendering pipeline, Hybrid Volumetric-Textural Rendering (HVTR), which synthesizes virtual human avatars from arbitrary poses efficiently and at high quality. First, we learn to encode articulated human motions on a dense UV manifold of the human body surface. To handle complicated motions (e.g., self-occlusions), we then leverage the encoded information on the UV manifold to construct a 3D volumetric representation based on a dynamic pose-conditioned neural radiance field. While this allows us to represent 3D geometry with changing topology, volumetric rendering is computationally heavy. Hence we employ only a rough volumetric representation using a pose-conditioned downsampled neural radiance field (PD-NeRF), which we can render efficiently at low resolutions. In addition, we learn 2D textural features that are fused with rendered volumetric features in image space. The key advantage of our approach is that we can then convert the fused features into a high-resolution, high-quality avatar by a fast GAN-based textural renderer. <b>We demonstrate that hybrid rendering enables HVTR to handle complicated motions, render high-quality avatars under user-controlled
+            poses/shapes and even loose clothing, and most importantly, be efficient at inference time.</b> Our experimental results also demonstrate the state-of-the-art quantitative results. <b> HVTR is  differentiable, and can be trained end-to-end using only 2D images. </b>
+
+          </p>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Video</h2>
+        <iframe width="900" height="506" src="https://www.youtube.com/embed/LE0-YpbLlkY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+      </div>
+    </div>
+    <!-- 760, 428
+    <iframe width="720" height="400" src="https://www.youtube.com/embed/LE0-YpbLlkY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+    <div class="section teaser">
+			<iframe width="720" height="400" src="https://www.youtube.com/embed/jrZfEEP_-zA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    </div>
+
+
+
+     <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+
+          <iframe src="https://www.youtube.com/embed/v=LE0-YpbLlkY?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+      </div>
+    </div>
+-->
+
+    <!--/ Paper video. static/data/video.mp4 -->
+  </div>
+</section>
+
+
+
+<!-- static/data/app_freeview.mp4 -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Pipelne. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Pipeline</h2>
+
+        <div class="content has-text-centered">
+          <img src="static/data/overview_2.png"> <!-- height="100% -->
+        </div>
+
+		<div class="content has-text-justified" >
+          <p style="font-size: 13pt;">
+			Given a coarse SMPL mesh $M_P$ with pose <b><i>P</i></b> and a target viewpoint (<b><i>o</i></b>, <b><i>d</i></b>), our system renders a detailed avatar using four main components: <b>&#9312;</b> pose encoding, <b>&#9313;</b> 2D textural feature encoding, <b>&#9314;</b> 3D volumetric representation, and <b>&#9315;</b> hybrid rendering.
+
+			<b> &#9312; Pose Encoding </b> in UV space: We learn human motions on the UV manifold of body mesh surface by recording the 3D positions of the mesh on a UV positional map and proposing optimizable geometry and texture latents to capture local motion/appearance details. The step <b> &#9312; </b> yields pose-dependent features in UV space, which are projected into 2D textural features $\Psi^{im}_{tex}$ in <b>&#9313; 2D Tex-Encoding</b>. <b>&#9314; 3D Vol-Rep</b>: To capture the rough geometry and address self-occlusion problems, we further learn a volumetric representation by constructing a pose-conditioned downsampled neural radiance field (PD-NeRF) to encode 3D pose-dependent features. <b>&#9315; Hybrid Rendering</b> : PD-NeRF is rasterized into image space $\Psi^{im}_{vol}$ by volume rendering, where 3D volumetric features are also preserved. Both the 2D textural and 3D volumetric features are pixel-aligned in image space, fused by Attentional Feature Fusion (AFF), and then converted into a realistic image and a mask by TexRenderer.
+          </p>
+        </div>
+
+        <!--/ Re-rendering. -->
+
+      </div>
+    </div>
+
+
+
+	<div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Render Loose Clothing</h2>
+		   <div class="content has-text-justified">
+          <p style="font-size: 13pt;">
+            Our method is capable of rendering loose clothing like skirts with GAN. In the current setup (learning pose-conditioned NeRF from 64 x 96 images,  e.g., regressed PD-NeRF image <b>&#9312;</b>), we cannot reconstruct the full offsets of the skirt, though we recover some offset details <b>&#9315;</b> and hair knot <b>&#9313;&#9314;</b>. Yet we can use GAN to render the skirts with rough geometries.
+
+          </p>
+		  </div>
+		  <!-- <img src="static/data/geometry.jpg" width=100% align="right" style="padding:1%;" class="0" /> -->
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+       <!--  <h2 class="title is-3">Matting</h2> -->
+        <div class="columns is-centered">
+          <div class="column content">
+		  <img src="static/data/skirt.jpg" width=95% align="right" style="padding:1%;" class="0" />
+            <!-- <p>
+              As a byproduct of our method, we can also solve the matting problem by ignoring
+              samples that fall outside of a bounding box during rendering.
+            </p>
+            <video id="matting-video" controls height="100%">
+              <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/matting.mp4"
+                      type="video/mp4">
+            </video> -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+	<div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Geometry Reconstruction</h2>
+		   <div class="content has-text-justified">
+          <p style="font-size: 13pt;">
+			As a byproduct of our method, we can also reconstruct a rough 3D geometry by learning the pose-conditioned downsampled NeRF from <b>45 x 45 (1/16 of full images)</b> resolution images
+with only <b>7</b> sampled points along each ray in training: left (predicted geometry),
+right (reference image), which enables efficient training and inference.
+          </p>
+		  </div>
+		  <!-- <img src="static/data/geometry.jpg" width=100% align="right" style="padding:1%;" class="0" /> -->
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+       <!--  <h2 class="title is-3">Matting</h2> -->
+        <div class="columns is-centered">
+          <div class="column content">
+		  <img src="static/data/geometry.jpg" width=95% align="right" style="padding:1%;" class="0" />
+            <!-- <p>
+              As a byproduct of our method, we can also solve the matting problem by ignoring
+              samples that fall outside of a bounding box during rendering.
+            </p>
+            <video id="matting-video" controls height="100%">
+              <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/matting.mp4"
+                      type="video/mp4">
+            </video> -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Applications</h2>
+
+        <div class="content has-text-justified">
+          <p style="font-size: 13pt;">
+			HVTR can render human avatars with both pose and shape control from arbitary viewpoints.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+				autoplay
+                 controls
+                 muted
+                 preload
+				 loop
+                 width="100%">
+            <source src="static/data/app_show.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+	<div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-4">Pose Driven Avatars</h2>
+          <p>
+            Render human avatars under different poses and viewpoints.
+          </p>
+          <video id="dollyzoom" controls muted loop playsinline height="100%">
+            <source src="static/data/pose_driven.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <h2 class="title is-4">Shape Editing</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              Render human avatars under different shape parameters.
+            </p>
+            <video id="matting-video" controls muted loop playsinline height="100%">
+              <source src="static/data/shape_editing.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+	  </div>
+
+
+
+
+
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{HVTR:3DV2022,
+      title={HVTR: Hybrid Volumetric-Textural Rendering for Human Avatars},
+      author={Hu, Tao and Yu, Tao and Zheng, Zerong and Zhang, He and Liu, Yebin and Zwicker, Matthias},
+      booktitle = {2022 International Conference on 3D Vision (3DV)},
+      year = {2022}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+		  For questions and clarifications please get in touch with: Tao Hu taohu[at]umd DOT edu. For the reproduction and performance of each baseline method please check our paper.
+		  </p>
+		  <p>
+          The website template is borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">nerfies</a>. Thanks to the original authors.</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
