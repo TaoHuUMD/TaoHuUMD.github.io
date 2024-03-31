@@ -39,6 +39,34 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+
+  <style type="text/css">
+    #div1{
+      width: 100%;
+      height: 100%;
+      border:#000 solid 0px;
+      margin: 50px auto;
+      /* overflow: hidden; */
+    }
+    #div1 img{
+      cursor: pointer;
+      transition: all 0.6s;
+    }
+    #div1 img:hover{
+      transform: scale(1.6);
+    }
+
+    #div1 iframe{
+      cursor: pointer;
+      transition: all 0.6s;
+    }
+    #div1 iframe:hover{
+      transform: scale(1.4);
+    }
+    </style>
+
+
 </head>
 <body>
 
@@ -109,7 +137,7 @@
 			  -->
 			  <span class="link-block">
                 <a href="https://www.youtube.com/watch?v=LE0-YpbLlkY"
-                   class="external-link button is-normal is-rounded is-dark">
+                   class="external-link button is-normal is-rounded is-dark", target=&ldquo;blank&rdquo;>
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
                   </span>
@@ -126,8 +154,10 @@
                   <span>Poster</span>
                 </a>
               </span>
+
+              <span class="link-block">
                 <a href="https://github.com/TaoHuUMD/SurMo"
-                   class="external-link button is-normal is-rounded is-dark">
+                   class="external-link button is-normal is-rounded is-dark", target=&ldquo;blank&rdquo;>
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
@@ -226,12 +256,24 @@
     <!-- Pipelne. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Pipeline</h2>
+        <h2 class="title is-3"> Motivation & Approach & Results <a href="static/data/HVTR_Poster.pdf" target=&ldquo;blank&rdquo;>[Poster]</a></h2>
 
-        <div class="content has-text-centered">
-          <img src="static/data/overview_2.png"> <!-- height="100% -->
+        Zoom on Hover
+
+        <div class="content has-text-centered", id="div1">
+          <img src="static/data/HVTR_Poster.jpg">
         </div>
 
+
+
+         <!-- 
+        <div class="content has-text-centered">
+          <iframe src="static/data/HVTR_Poster.pdf", width="100%" height="590"> </iframe>
+        </div>
+  
+          -->
+
+       <!-- 
 		<div class="content has-text-justified" >
           <p style="font-size: 13pt;">
 			Given a coarse SMPL mesh $M_P$ with pose <b><i>P</i></b> and a target viewpoint (<b><i>o</i></b>, <b><i>d</i></b>), our system renders a detailed avatar using four main components: <b>&#9312;</b> pose encoding, <b>&#9313;</b> 2D textural feature encoding, <b>&#9314;</b> 3D volumetric representation, and <b>&#9315;</b> hybrid rendering.
@@ -239,6 +281,7 @@
 			<b> &#9312; Pose Encoding </b> in UV space: We learn human motions on the UV manifold of body mesh surface by recording the 3D positions of the mesh on a UV positional map and proposing optimizable geometry and texture latents to capture local motion/appearance details. The step <b> &#9312; </b> yields pose-dependent features in UV space, which are projected into 2D textural features $\Psi^{im}_{tex}$ in <b>&#9313; 2D Tex-Encoding</b>. <b>&#9314; 3D Vol-Rep</b>: To capture the rough geometry and address self-occlusion problems, we further learn a volumetric representation by constructing a pose-conditioned downsampled neural radiance field (PD-NeRF) to encode 3D pose-dependent features. <b>&#9315; Hybrid Rendering</b> : PD-NeRF is rasterized into image space $\Psi^{im}_{vol}$ by volume rendering, where 3D volumetric features are also preserved. Both the 2D textural and 3D volumetric features are pixel-aligned in image space, fused by Attentional Feature Fusion (AFF), and then converted into a realistic image and a mask by TexRenderer.
           </p>
         </div>
+      -->
 
         <!--/ Re-rendering. -->
 
