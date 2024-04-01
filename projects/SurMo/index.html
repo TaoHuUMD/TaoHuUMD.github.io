@@ -4,10 +4,12 @@
   <meta charset="utf-8">
   <meta name="description"
         content="SurMo: Surface-based 4D Motion Modeling for Dynamic Human Rendering.">
-  <title>SurMo: Surface-based 4D Motion Modeling for Dynamic Human Rendering</title>
-  
+  <title>SurMo: Surface-based 4D Motion Modeling for Dynamic Human Rendering.</title>
+
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -39,6 +41,34 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+0
+
+  <style type="text/css">
+    #div1{
+      width: 100%;
+      height: 100%;
+      border:#000 solid 0px;
+      margin: 50px auto;
+      /* overflow: hidden; */
+    }
+    #div1 img{
+      cursor: pointer;
+      transition: all 0.6s;
+    }
+    #div1 img:hover{
+      transform: scale(1.4);
+    }
+
+    #div1 iframe{
+      cursor: pointer;
+      transition: all 0.6s;
+    }
+    #div1 iframe:hover{
+      transform: scale(1.4);
+    }
+    </style>
+
+
 </head>
 <body>
 
@@ -53,25 +83,292 @@
   </div>
 </nav>
 
-
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">SurMo: Surface-based 4D Motion Modeling for Dynamic Human Rendering</h1>     
-          
-          <h3 class="title is-3 publication-title"> <a href="https://www.ntu.edu.sg/s-lab" target=&ldquo;blank&rdquo;>S-Lab, Nanyang Technological University, Singapore</a></h3>
+          <h1 class="title is-1 publication-title">SurMo: Surface-based 4D Motion Modeling for Dynamic Human Rendering</h1>
+          <h3 class="title is-3 publication-title"> CVPR 2024</h3>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://taohuumd.github.io/" target=&ldquo;blank&rdquo;>Tao Hu</a>, &nbsp;&nbsp; <a href="https://github.com/hongfz16" target=&ldquo;blank&rdquo;>Fangzhou Hong</a>, &nbsp;&nbsp; <span class="author-block">
+                <a href="https://liuziwei7.github.io/" target=&ldquo;blank&rdquo;>Ziwei Liu</a><sup>*</sup></span> &nbsp;&nbsp;                
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://www.ntu.edu.sg/s-lab" target=&ldquo;blank&rdquo;>S-Lab, Nanyang Technological University</a></span> &nbsp;&nbsp;&nbsp;&nbsp;
+			<span class="author-block"><sup>*</sup>corresponding author</span>&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
 
-          
-          
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/"
+                   class="external-link button is-normal is-rounded is-dark" target=&ldquo;blank&rdquo;>
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+	          
+			  <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=m_rP5HwL53I"
+                   class="external-link button is-normal is-rounded is-dark", target=&ldquo;blank&rdquo;>
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
 
+              <span class="link-block">
+                <a href="https://github.com/TaoHuUMD/SurMo"
+                   class="external-link button is-normal is-rounded is-dark", target=&ldquo;blank&rdquo;>
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+             </span>
+
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+		 <video id="teaser" autoplay controls muted loop height="100%">
+				<source src="static/data/aist1.mp4"
+						type="video/mp4">
+			  </video> 
+      <h2 class="subtitle has-text-centered"> 
+        <div class="content has-text-justified">
+        <p style="font-size: 13pt;">
+          <b>TL;DR:</b> SurMo is a new paradigm for learning dynamic human rendering from videos, by jointly modeling the temporal motion dynamics and human appearances in a unified framework based on a novel surface-based triplane.
+        </p>
+      </div>
+      </h2>
+    </div>
+  </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p style="font-size: 14pt;">
+            Dynamic human rendering from video sequences has achieved remarkable progress by formulating the rendering as a mapping from static poses to human images. However, existing methods focus on the human appearance reconstruction of every single frame while the temporal motion relations are not fully explored. In this paper, we propose <b>a new 4D motion modeling paradigm, SurMo, that jointly models the temporal dynamics and human appearances in a unified framework </b> with three key designs: <b>1) Surface-based motion encoding</b> that models 4D human motions with an efficient compact surface-based triplane. It encodes both spatial and temporal motion relations on the dense surface manifold of a statistical body template, which inherits body topology priors for generalizable novel view synthesis with sparse training observations. <b>2) Physical motion decoding</b> that is designed to encourage physical motion learning by decoding the motion triplane features at timestep t to predict both spatial derivatives and temporal derivatives at the next timestep t+1 in the training stage.  <b>3) 4D appearance decoding </b> that renders the motion triplanes into images by an efficient volumetric surface-conditioned renderer that focuses on the rendering of body surfaces with motion learning conditioning. Extensive experiments validate the state-of-the-art performance of our new paradigm and illustrate the expressiveness of surface-based motion triplanes for rendering high-fidelity view-consistent humans with fast motions and even motion-dependent shadows.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    
+    
+
+    <!--/ Paper video. static/data/video.mp4 -->
+  </div>
+</section>
+
+
+
+<!-- static/data/app_freeview.mp4 -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method Overview. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"> Method Overview </h2>
+
+        <div class="content has-text-justified" >
+          <img src="static/data/frameless.png">
+          Given a set of time-varying 3D body meshes obtained from training video sequences, SurMo learns to synthesize high-fidelity appearances of a clothed human in motion via a feature encoder-decoder framework. In contrast to the existing well-adopted paradigm of "Pose Encoding <b style="color:red;">&rarr;</b> Appearance Decoding", we propose a new paradigm "<b>&#9312; Motion Encoding</b> (Pose + Dynamics, e.g., velocity, motion trajectory at timestep <i>t</i> ) <b style="color:red;">&rarr;</b> <b>&#9313; Physical Motion Decoding</b> (predicting spatial and temporal motion derivatives, e.g., surface normal and velocity at timestep <i>t+1</i>) <b style="color:red;">+</b>  <b>&#9314; Appearance Decoding</b>" that jointly models the temporal dynamics and human appearances in a unified framework. In addition, we propose to model motions on a novel <b>surface-based triplane</b> efficiently.
+        </div>
+        
+        <h3 class="title is-3"> Volumetric Triplane vs. Surface-based Triplane </h3>
+        <div class="content has-text-justified" id="div1">
+          <img src="static/data/tripless.jpg">
+          <p style="font-size: 13pt;">
+            Volumetric triplane is a sparse representation for human body modeling, i.e., only 21-35% (occupancy rate) features are utilized to render the human under the specific pose, and hence the Vol-Trip fails to handle the self-occlusions effectively as shown in (d). In contrast, about <b>85%</b> surface-based triplane features are utilized in rendering. In addition, with surface-guided ray marching, our method is more efficient by filtering out invalid points that are far from the body surface.
+          </p>
+        </div>
+
+        
+
+      </div>
+    </div>
+
+
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Render Motion-Dependent Shadows on <a href="https://people.mpi-inf.mpg.de/~mhaberma/projects/2021-ddc/" target=&ldquo;blank&rdquo;>
+          MPII-RDDC 
+         </a> </h2>
+
+        <div class="content has-text-justified">
+          <img src="static/data/mpi_lighting.jpg">
+        
+          <p style="font-size: 13pt;">
+            <b>Novel view synthesis of time-varying appearances with both pose and lighting conditioning </b> on MPII-RDDC dataset. The sequence is captured in a studio with top-down lighting that casts shadows on the human performer due to self-occlusion. In Row 1, we specifically focus on synthesizing <b>time-varying shadows</b> (e.g., &#9312; vs. &#9313;, and &#9314; vs. &#9315;) for different poses with different self-occlusions. In Row 2, we evaluate the synthesis of: <b>1) time-varying appearances </b> for similar poses occurring in a jump-up-and-down motion sequence, e.g., &#9316; vs. &#9317;, <b> 2) shadows &#9318; vs. &#9319;</b>, and <b> 3) clothing offsets &#9316; vs. &#9317; </b>.
+          </p>
+        </div>
+
+        <div class="content has-text-centered">
+          <video id="replay-video" autoplay controls muted preload loop width="100%">
+            <source src="static/data/shadow.mp4" type="video/mp4">
+          </video>
+        </div>
+
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+    
+
+
+
+  <h2 class="title is-4">Render Fast Motions on     <a href="https://github.com/google/aistplusplus_api" target=&ldquo;blank&rdquo;>
+    AIST++ 
+   </a> </h2>
+	<div class="columns is-centered">
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="static/data/aist1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <div class="columns is-centered">
+          <div class="column content">
+            <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+              <source src="static/data/aist2.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+	</div>
+
+
+
+	<div class="columns is-centered">
+
+    <!-- Visual Effects. -->
+    <div class="column">
+      <div class="content">
+        <h2 class="title is-4">Novel View Synthesis on <a href="https://github.com/zju3dv/neuralbody" target=&ldquo;blank&rdquo;>
+          ZJU_MoCap 
+         </a></h2>
+        <video id="dollyzoom" controls muted loop playsinline height="100%">
+          <source src="static/data/nvcrop4.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <!--/ Visual Effects. -->
+
+    <!-- Matting. -->
+    <div class="column">
+      <h2 class="title is-4">Free View Synthesis</h2>
+      <div class="columns is-centered">
+        <div class="column content">
+          <video id="matting-video" controls muted loop playsinline height="100%">
+            <source src="static/data/fvcrop4.mp4" type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+</div>
+
+<div class="columns is-centered">
+  <div class="column is-full-width">
+    <h2 class="title is-3">Comparisons to Baseline Methods</h2>
+
+    <div class="content has-text-centered">
+      <video id="dollyzoom" controls muted loop playsinline height="100%">
+        <source src="static/data/cmp_zju2.mp4"
+                type="video/mp4">
+      </video>
+    </div>
+  </div>
+</div>
+
+<div class="columns is-centered has-text-centered">
+  <div class="column is-full-width">
+    <h2 class="title is-3">Full Video Demo</h2>
+    <iframe width="900" height="506" src="https://www.youtube.com/embed/m_rP5HwL53I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+  </div>
+</div>
+<!--/ Animation. -->
+
+
+  <div class="columns is-centered">
+    <div class="column is-full-width">
+      <h2 class="title is-3">Acknowledgments </h2>
+      <div class="content has-text-justified">
+        <p style="font-size: 13pt;">
+          This study is supported by the Ministry of Education, Singapore, under its MOE AcRF Tier 2 (MOE-T2EP20221-0012), NTU NAP, and under the RIE2020 Industry Alignment Fund – Industry Collaboration Projects (IAF-ICP) Funding Initiative, as well as cash and in-kind contribution from the industry partner(s).
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code></code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+		  For questions and clarifications please get in touch with: Tao Hu tao.hu[at]ntu DOT edu.sg or taohu[at]umd DOT edu.
+		  </p>
+		  <p>
+          The website template is borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">nerfies</a>. Thanks to the original authors.</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
