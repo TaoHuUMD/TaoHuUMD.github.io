@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="StructLDM: Structured Latent Diffusion for 3D Human Generation.">
+  <title>StructLDM: Structured Latent Diffusion for 3D Human Generation.</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+
+
+
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+
+  <style type="text/css">
+    #div1{
+      width: 100%;
+      height: 100%;
+      border:#000 solid 0px;
+      margin: 50px auto;
+      /* overflow: hidden; */
+    }
+    #div1 img{
+      cursor: pointer;
+      transition: all 0.6s;
+    }
+    #div1 img:hover{
+      transform: scale(1.4);
+    }
+
+    #div1 iframe{
+      cursor: pointer;
+      transition: all 0.6s;
+    }
+    #div1 iframe:hover{
+      transform: scale(1.4);
+    }
+    </style>
+
+
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">StructLDM: Structured Latent Diffusion for 3D Human Generation</h1>
+          <h3 class="title is-3 publication-title"> Technical Report 2024</h3>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://taohuumd.github.io/" target=&ldquo;blank&rdquo;>Tao Hu</a>, &nbsp;&nbsp; <a href="https://github.com/hongfz16" target=&ldquo;blank&rdquo;>Fangzhou Hong</a>, &nbsp;&nbsp; <span class="author-block">
+                <a href="https://liuziwei7.github.io/" target=&ldquo;blank&rdquo;>Ziwei Liu</a><sup>*</sup></span> &nbsp;&nbsp;                
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://www.ntu.edu.sg/s-lab" target=&ldquo;blank&rdquo;>S-Lab, Nanyang Technological University</a></span> &nbsp;&nbsp;&nbsp;&nbsp;
+			<span class="author-block"><sup>*</sup>corresponding author</span>&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2112.10203.pdf"
+                   class="external-link button is-normal is-rounded is-dark" target=&ldquo;blank&rdquo;>
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper()</span>
+                </a>
+              </span>
+	          
+			  <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=g2UDKPeJvEs"
+                   class="external-link button is-normal is-rounded is-dark", target=&ldquo;blank&rdquo;>
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://github.com/TaoHuUMD/StructLDM"
+                   class="external-link button is-normal is-rounded is-dark", target=&ldquo;blank&rdquo;>
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+             </span>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+     
+        <div class="content has-text-justified">               
+          <p style="font-size: 13pt;">
+            <b>TL;DR:</b> StructLDM is a diffusion-based unconditional 3D human generative model learned from 2D images.
+          </p>
+          <img src="static/data/teaser_pure.jpg">
+          <p style="font-size: 13pt;">
+          StructLDM generates diverse view-consistent humans, and supports different levels of controllable generations and editings, such as compositional generations by blending the five selected parts from a), and part-aware editings such as identity swapping, local clothing editing, 3D virtual try-on, etc. Note that the generations and editing are clothing-agnostic without clothing types or masks conditioning.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p style="font-size: 14pt;">
+            Recent 3D human generative models have achieved remarkable progress by learning 3D-aware GANs from 2D images. However, existing 3D human generative methods model humans in a compact 1D latent space, ignoring the articulated structure and semantics of human body topology. In this paper, we explore more expressive and higher-dimensional latent space for 3D human modeling and propose <b>StructLDM</b>, a diffusion-based unconditional 3D human generative model that is learned from 2D images. <b>StructLDM</b> solves the challenges imposed due to the high-dimensional growth of latent space with three key designs: <b>1) A semantic structured latent space</b> defined on the dense surface manifold of a statistical human body template. <b>2) A structured 3D-aware auto-decoder</b> that factorizes the global latent space into several semantic body parts parameterized by a set of conditional structured local NeRFs anchored to the body template, which embeds the properties learned from the 2D training data and can be decoded to render view-consistent humans under different poses and clothing styles. <b>3) A structured latent diffusion model</b> for generative human appearance sampling. Extensive experiments validate StructLDM's state-of-the-art generation performance and illustrate the expressiveness of the structured latent space over the well-adopted 1D latent space. Notably, StructLDM enables different levels of controllable 3D human generation and editing, including pose/view/shape control, and high-level tasks including compositional generations, part-aware clothing editing, 3D virtual try-on, etc. 
+          </p>
+        </div>
+      </div>
+    </div>
+
+    
+    
+
+    <!--/ Paper video. static/data/video.mp4 -->
+  </div>
+</section>
+
+
+
+<!-- static/data/app_freeview.mp4 -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method Overview. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"> Method Overview </h2>
+
+        <div class="content has-text-justified" >
+          <img src="static/data/framework2.png">
+          Two-stage framework. In Stage 1, given a training dataset containing various human subject images with estimated SMPL and camera parameters distribution, an autodecoder is learned to optimize the structured latent z ∈ Z for each training subject. Each latent is rendered into a pose- and view-dependent image by a structured volumetric renderer G1 and a global style mixer (GM) G2. In Stage 2, the autodecoder parameters are frozen and the learned structured latent Z are then used to train a latent diffusion model. At inference time, latents are randomly sampled and decoded by G2 ◦ G1 for human rendering.
+        </div>
+        
+        <h3 class="title is-3"> Consistent Human Editing in UV-based Latent Space</h3>
+        <div class="content has-text-justified" id="div1">
+          <img src="static/data/compos_editing_2.jpg">
+          <p style="font-size: 13pt;">
+            StructLDM enables compositional 3D human generation and part-aware editing. Taking six body parts from a), coherent composition and blending results can be achieved in b). Using the Diff-Render procedure, part-aware editing enables lots of downstream tasks in c).
+          </p>
+        </div>
+
+        
+
+      </div>
+    </div>
+
+
+    <!--/ UBCFashion generation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Diverse Generations on <a href="https://vision.cs.ubc.ca/datasets/fashion/" target=&ldquo;blank&rdquo;>
+          UBCFashion 
+         </a> </h2>
+        <div class="content has-text-centered">
+          <video id="replay-video" autoplay controls muted preload loop width="100%">
+            <source src="static/data/ubc_gen.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <!--/ RenderPeople generation. -->
+    <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Diverse Generations on <a href="https://renderpeople.com/3d-people/?gad_source=1&gclid=CjwKCAjwtqmwBhBVEiwAL-WAYf7mgpSR9bOkxpyUHLEx6xZ2ZP6ggLaP5uNhu4lpYlnJ_hXuRNDdXhoCDSgQAvD_BwE" target=&ldquo;blank&rdquo;>
+            RenderPeople 
+            </a> </h2>
+          <div class="content has-text-centered">
+            <video id="replay-video" autoplay controls muted preload loop width="100%">
+              <source src="static/data/rp.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+     <!--/ Compositional generation. -->
+     <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Compositional Generations</h2>
+        <div class="content has-text-centered">
+          <video id="replay-video" autoplay controls muted loop width="100%">
+            <source src="static/data/compos.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+
+    <!--/ UBCFashion generation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Novel View Synthesis on <a href="https://vision.cs.ubc.ca/datasets/fashion/" target=&ldquo;blank&rdquo;>
+          UBCFashion 
+         </a> </h2>
+        <div class="content has-text-centered">
+          <video id="replay-video" controls muted loop width="100%">
+            <source src="static/data/free.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+<div class="columns is-centered has-text-centered">
+  <div class="column is-full-width">
+    <h2 class="title is-3">Full Video Demo</h2>
+    <iframe width="900" height="506" src="https://www.youtube.com/embed/g2UDKPeJvEs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+  </div>
+</div>
+<!--/ Animation. -->
+
+
+  <div class="columns is-centered">
+    <div class="column is-full-width">
+      <h2 class="title is-3">Acknowledgments </h2>
+      <div class="content has-text-justified">
+        <p style="font-size: 13pt;">
+          This study is supported by the Ministry of Education, Singapore, under its MOE AcRF Tier 2 (MOE-T2EP20221-0012), NTU NAP, and under the RIE2020 Industry Alignment Fund – Industry Collaboration Projects (IAF-ICP) Funding Initiative, as well as cash and in-kind contribution from the industry partner(s).
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code></code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+		  For questions and clarifications please get in touch with: Tao Hu tao.hu[at]ntu DOT edu.sg or taohu[at]umd DOT edu.
+		  </p>
+		  <p>
+          The website template is borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">nerfies</a>. Thanks to the original authors.</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
