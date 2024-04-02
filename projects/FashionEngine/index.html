@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="FashionEngine: Interactive Generation and Editing of 3D Clothed Humans.">
+  <title>FashionEngine: Interactive Generation and Editing of 3D Clothed Humans.</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+
+
+
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+
+  <style type="text/css">
+    #div1{
+      width: 100%;
+      height: 100%;
+      border:#000 solid 0px;
+      margin: 50px auto;
+      /* overflow: hidden; */
+    }
+    #div1 img{
+      cursor: pointer;
+      transition: all 0.6s;
+    }
+    #div1 img:hover{
+      transform: scale(1.4);
+    }
+
+    #div1 iframe{
+      cursor: pointer;
+      transition: all 0.6s;
+    }
+    #div1 iframe:hover{
+      transform: scale(1.4);
+    }
+    </style>
+
+
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">FashionEngine: Interactive Generation and Editing of 3D Clothed Humans</h1>
+          <h3 class="title is-3 publication-title"> Technical Report 2024</h3>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://taohuumd.github.io/" target=&ldquo;blank&rdquo;>Tao Hu</a>, &nbsp;&nbsp; 
+              <a href="https://github.com/hongfz16" target=&ldquo;blank&rdquo;>Fangzhou Hong</a>, &nbsp;&nbsp; <span class="author-block">
+                &nbsp;&nbsp; 
+                <a href="https://frozenburning.github.io/" target=&ldquo;blank&rdquo;>Zhaoxi Chen</a>, &nbsp;&nbsp; <span class="author-block"></span>                
+                <a href="https://liuziwei7.github.io/" target=&ldquo;blank&rdquo;>Ziwei Liu</a><sup>*</sup></span> &nbsp;&nbsp;                
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://www.ntu.edu.sg/s-lab" target=&ldquo;blank&rdquo;>S-Lab, Nanyang Technological University</a></span> &nbsp;&nbsp;&nbsp;&nbsp;
+			<span class="author-block"><sup>*</sup>corresponding author</span>&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark" target=&ldquo;blank&rdquo;>
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper(Coming)</span>
+                </a>
+              </span>
+	          
+			  <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=kJ_nuzde5ko"
+                   class="external-link button is-normal is-rounded is-dark", target=&ldquo;blank&rdquo;>
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/TaoHuUMD/FashionEngine"
+                   class="external-link button is-normal is-rounded is-dark", target=&ldquo;blank&rdquo;>
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+             </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">               
+          <p style="font-size: 13pt;">
+            <b>TL;DR:</b> FashionEngine is an interactive 3D human generation and editing system with multimodal control (e.g., texts, images, hand-deawing sketches).
+          </p>
+          <img src="static/data/teaser4.jpg">
+          <p style="font-size: 13pt;">
+          With FashionEngine, artist-designers can generate a view-consistent clothed human in three different ways (a), including texts describing the human clothing &#9312;; hand-drawing sketches &#9313; describing the clothing shape such as neckline shape, length of sleeve, and the length of lower clothing on a warped human body template; and random appearance sampling &#9314;. (b) Users are also allowed to edit the generated human interactively with multimodal control (e.g., texts, reference images, and sketches). (c) Users can adjust the pose and shape of the edited humans and check the renderings from different camera viewpoints before exporting images or video assets.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p style="font-size: 14pt;">
+            We present <b>FashionEngine</b>, an interactive 3D human generation and editing system that allows us to design 3D digital humans in a way that aligns with how humans interact with the world, such as natural languages, visual perceptions, and hand-drawing. FashionEngine automates the 3D human production with three key components: <b>1) A pre-trained 3D human diffusion model</b> that learns to model 3D humans in a semantic UV latent space from 2D image training data, which provides strong priors for diverse generation and editing tasks. <b>2) Multimodality-UV Space</b> encoding the texture appearance, shape topology, and textual semantics of human clothing in a canonical UV-aligned space, which faithfully aligns the user multimodal inputs with the implicit UV latent space for controllable 3D human editing. The multimodality-UV space is shared across different user inputs, such as texts, images, and sketches, which enables various joint multimodal editing tasks. <b> 3) Multimodality-UV Aligned Sampler</b> learns to sample high-quality and diverse 3D humans from the diffusion prior for multimodal user inputs. Extensive experiments validate FashionEngine's state-of-the-art performance for conditional generation/editing tasks. In addition, we present an interactive user interface for our FashionEngine that enables both conditional and unconditional generation tasks, and editing tasks including pose/view/shape control, text-, image-, and sketch-driven 3D human editing and 3D virtual try-on, in a unified framework.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    
+    
+
+    <!--/ Paper video. static/data/video.mp4 -->
+  </div>
+</section>
+
+
+
+<!-- static/data/app_freeview.mp4 -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method Overview. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"> Method Overview </h2>
+
+        <div class="content has-text-justified" >
+          <img src="static/data/method.jpg">
+          Pipeline of multimodal generation. (a) Text- and sketch-driven generation: Given text input or sketch input in the template UV space, we present Text-UV Aligned Samplers and Sketch-UV Aligned Samplers to sample latents from the learned human prior respectively, which can be rendered into images by latent diffusion and rendering (Diff-Render). At the core of the Text-UV Aligned Samplers are the TextMatch and ShapeMatch modules that we propose for text- or sketch-aligned sampling.
+        </div>
+        
+      </div>
+    </div>
+
+<div class="columns is-centered has-text-centered">
+  <div class="column is-full-width">
+    <h2 class="title is-3">Full Video Demo</h2>
+    <iframe width="900" height="506" src="https://www.youtube.com/embed/kJ_nuzde5ko" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+  </div>
+</div>
+<!--/ Animation. -->
+
+
+  <div class="columns is-centered">
+    <div class="column is-full-width">
+      <h2 class="title is-3">Acknowledgments </h2>
+      <div class="content has-text-justified">
+        <p style="font-size: 13pt;">
+          This study is supported by the Ministry of Education, Singapore, under its MOE AcRF Tier 2 (MOE-T2EP20221-0012), NTU NAP, and under the RIE2020 Industry Alignment Fund – Industry Collaboration Projects (IAF-ICP) Funding Initiative, as well as cash and in-kind contribution from the industry partner(s).
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code></code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+		  For questions and clarifications please get in touch with: Tao Hu tao.hu[at]ntu DOT edu.sg or taohu[at]umd DOT edu.
+		  </p>
+		  <p>
+          The website template is borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">nerfies</a>. Thanks to the original authors.</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
