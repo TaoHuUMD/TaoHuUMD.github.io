@@ -140,15 +140,26 @@
 
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-full-width">
+      <p style="font-size: 13pt;">
+        <b>TL;DR:</b> SurMo is a new paradigm for learning dynamic human rendering from videos by jointly modeling the temporal motion dynamics and human appearances in a unified framework based on a novel surface-based triplane.</p>
 		 <video id="teaser" autoplay controls muted loop height="100%">
 				<source src="static/data/aist1.mp4"
 						type="video/mp4">
 			  </video> 
       <h2 class="subtitle has-text-centered"> 
         <div class="content has-text-justified">
-        <p style="font-size: 13pt;">
-          <b>TL;DR:</b> SurMo is a new paradigm for learning dynamic human rendering from videos, by jointly modeling the temporal motion dynamics and human appearances in a unified framework based on a novel surface-based triplane.
+          <p style="font-size: 13pt;">
+          <b>Observations and Contributions:</b>
+          <ul style="font-size: 13pt;">
+            <li> <b>New Paradigm.</b> We extend the existing well-adopted paradigm of "Pose Encoding &rarr; Appearance Decoding" to "Motion Encoding &rarr; <b>Motoin Decoding</b>, Appearance Decoding", and found that a Motoin Decoding module could significantly improve both the quantative and qualitative rendering results. *Motion = Pose + Dynamics (e.g., velocity, motion trajectory) </li>
+            <li><b>Dynamics Modeling.</b> We explicitly model physical dynamics, and we are one of the early works that systematically analyze how human appearances are affected by temporal dynamics and found that the existing paradigm mainly synthesizes pose-dependent instead of time-varying appearances.</li>
+            <li> <b>Surface-based vs. Volumetric Motion Modeling.</b> We compare Surface-based and Volumetric triplane in motion modeling, and illustrate that Surface-based triplane converges faster in training, and performs more effectively in handling self-occlusions and more efficiently in rendering.</li> 
+
+          </ul>  
+          
+
+
         </p>
       </div>
       </h2>
@@ -159,6 +170,17 @@
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
+
+
+
+
+
+
+
+
+
+
+
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Abstract</h2>
@@ -201,13 +223,20 @@
             Volumetric triplane is a sparse representation for human body modeling, i.e., only 21-35% (occupancy rate) features are utilized to render the human under the specific pose, and hence the Vol-Trip fails to handle the self-occlusions effectively as shown in (d). In contrast, about <b>85%</b> surface-based triplane features are utilized in rendering. In addition, with surface-guided ray marching, our method is more efficient by filtering out invalid points that are far from the body surface.
           </p>
         </div>
-
-        
-
       </div>
     </div>
 
-
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Time-Varying vs. Pose-Varying Appearances</h2>
+        <div class="content has-text-justified">
+          <img src="static/data/timepose.png">
+          <p style="font-size: 13pt;">
+            Novel view synthesis on two motion sequences S1 (swing arms left to right) and S2 (raise and lower arms). We specifically focus on the synthesis of <b>time-varying appearances</b> (especially T-shirt wrinkles), by evaluating the rendering results under <b>similar poses yet with different movement directions</b>, which are marked in the same color, such as the pairs of &#9312;&#9313;, &#9314;&#9315;, and &#9316;&#9317;. Our new paradimg is capable of synthesizing high-fidelity time-varying appearances, whereas existing paradigm mainly synthesizes pose-dependent instead of time-varying appearances, i.e., HumanNeRF [Weng et al.] generates almost the same cloth wrinkles.              
+          </p>
+        </div>        
+      </div>
+    </div>
 
     <div class="columns is-centered">
       <div class="column is-full-width">
@@ -233,6 +262,8 @@
       </div>
     </div>
     <!--/ Animation. -->
+    
+
     
 
 
