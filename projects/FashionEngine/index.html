@@ -89,7 +89,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">FashionEngine: Interactive Generation and Editing of 3D Clothed Humans</h1>
-          <h3 class="title is-3 publication-title"> Technical Report 2024 (Under Construction) </h3>
+          <h3 class="title is-3 publication-title"> Technical Report 2024 </h3>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://taohuumd.github.io/" target=&ldquo;blank&rdquo;>Tao Hu</a>, &nbsp;&nbsp; 
@@ -106,12 +106,12 @@
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
-                <a href=""
+                <a href="https://arxiv.org/pdf/2404.01655.pdf"
                    class="external-link button is-normal is-rounded is-dark" target=&ldquo;blank&rdquo;>
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                   </span>
-                  <span>Paper(Coming)</span>
+                  <span>Paper</span>
                 </a>
               </span>
 	          
@@ -183,6 +183,14 @@
 </section>
 
 
+<div class="columns is-centered has-text-centered">
+  <div class="column is-full-width">
+    <h2 class="title is-3">Real-time Demo</h2>
+    <iframe width="900" height="506" src="https://www.youtube.com/embed/kJ_nuzde5ko" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+  </div>
+</div>
+
 
 <!-- static/data/app_freeview.mp4 -->
 
@@ -194,21 +202,52 @@
       <div class="column is-full-width">
         <h2 class="title is-3"> Method Overview </h2>
 
-        <div class="content has-text-justified" >
-          <img src="static/data/method.jpg">
-          Pipeline of multimodal generation. (a) Text- and sketch-driven generation: Given text input or sketch input in the template UV space, we present Text-UV Aligned Samplers and Sketch-UV Aligned Samplers to sample latents from the learned human prior respectively, which can be rendered into images by latent diffusion and rendering (Diff-Render). At the core of the Text-UV Aligned Samplers are the TextMatch and ShapeMatch modules that we propose for text- or sketch-aligned sampling.
-        </div>
-        
+
+        <div class="columns is-centered">
+          <!-- Visual Effects. -->
+          <div class="column">
+            <div class="content">
+              <h3 class="title is-5"> 1. 3D Human Prior Learning </h3>
+              <img src="static/data/prior.png">
+              <div class="content has-text-justified">
+                <p style="font-size: 13pt;"> 1. We utilize a learned 3D human prior <i><b>Z</b></i> from a two-stage StructLDM approach that includes a structured autodecoder and a latent diffusion model both learned in a semantic UV latent space.</p>
+              </div>
+              <h3 class="title is-5"> 2. Multimodality-UV Space </h3>
+              <img src="static/data/m2_space.png">
+              <div class="content has-text-justified">
+                <p style="font-size: 13pt;">2. With the learned prior <i><b>Z</b></i>, we construct a Multimodality-UV Space for controllable 3D generation/editing, including an Appearance-Canonical Space, an Appearance-UV Space, a textual Semantics-UV Space, and a geometric Shape-UV Space.</p>
+              </div>
+            </div>
+          </div>
+          <!--/ Visual Effects. -->
+    
+          <!-- Matting. -->
+          <div class="column">
+            <div class="columns is-centered">
+              <div class="column content">
+                <h3 class="title is-5"> 4. Controllable Multimodal Editing </h3>
+                <img src="static/data/editing.png">
+                <div class="content has-text-justified">
+                  <p style="font-size: 13pt;">4. Users are allowed to edit a generated human by inputting texts, drawing sketches, or providing an reference image for style transfer. The multimodal editing inputs can be faithfully transferred into UV space to edit the UV latent for 3D editing.</p>
+                </div>
+              </div>
+    
+            </div>
+          </div>
+      </div>
+
+      
+      <h3 class="title is-5"> 3. Controllable Multimodal Generation </h3>
+      <div class="content has-text-justified" >
+        <img src="static/data/method.jpg">
+        3. Taking as inpu texts or sketches in UV space, we present Text-UV Aligned Samplers and Sketch-UV Aligned Samplers to sample latents from the learned human prior  <i><b>Z</b></i> respectively, which can be rendered into images by latent diffusion and rendering (Diff-Render). At the core of the Text-UV Aligned Samplers are the TextMatch and ShapeMatch modules that we propose for text- or sketch-aligned sampling.
+      </div>
+
+
       </div>
     </div>
 
-<div class="columns is-centered has-text-centered">
-  <div class="column is-full-width">
-    <h2 class="title is-3">Full Video Demo</h2>
-    <iframe width="900" height="506" src="https://www.youtube.com/embed/kJ_nuzde5ko" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-  </div>
-</div>
 <!--/ Animation. -->
 
 
@@ -229,7 +268,15 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code></code></pre>
+    <pre>
+  @misc{hu2024fashionengine,
+      title={FashionEngine: Interactive Generation and Editing of 3D Clothed Humans}, 
+      author={Tao Hu and Fangzhou Hong and Zhaoxi Chen and Ziwei Liu},
+      year={2024},
+      eprint={2404.01655},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+    }</pre>
   </div>
 </section>
 
