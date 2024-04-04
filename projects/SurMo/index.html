@@ -141,24 +141,25 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
-      <p style="font-size: 13pt;">
-        <b>TL;DR:</b> SurMo is a new paradigm for learning dynamic human rendering from videos by jointly modeling the temporal motion dynamics and human appearances in a unified framework based on a novel surface-based triplane.</p>
-		 <video id="teaser" autoplay controls muted loop height="100%">
+        <p style="font-size: 13pt;">
+          <b>TL;DR:</b> SurMo is a new paradigm for learning dynamic human rendering from videos by jointly modeling the temporal motion dynamics and human appearances in a unified framework based on a novel surface-based triplane. </p>
+  		 <video id="teaser" autoplay controls muted loop height="100%">
 				<source src="static/data/aist1.mp4"
 						type="video/mp4">
-			  </video> 
+			  </video>
       <h2 class="subtitle has-text-centered"> 
         <div class="content has-text-justified">
           <p style="font-size: 13pt;">
+          SurMo effectively models the <b>secondary motion of clothes</b>, e.g., movements of the T-shirt induced by dancing.
+          <br>
+          <br>
           <b>Observations and Contributions:</b>
           <ul style="font-size: 13pt;">
             <li> <b>New Paradigm.</b> We extend the existing well-adopted paradigm of "Pose Encoding &rarr; Appearance Decoding" to "Motion Encoding &rarr; <b>Motoin Decoding</b>, Appearance Decoding", and found that a Motoin Decoding module could significantly improve both the quantative and qualitative rendering results. *Motion = Pose + Dynamics (e.g., velocity, motion trajectory) </li>
             <li><b>Dynamics Modeling.</b> We explicitly model physical dynamics, and we are one of the early works that systematically analyze how human appearances are affected by temporal dynamics and found that the existing paradigm mainly synthesizes pose-dependent instead of time-varying appearances.</li>
-            <li> <b>Surface-based vs. Volumetric Motion Modeling.</b> We compare Surface-based and Volumetric triplane in motion modeling, and illustrate that Surface-based triplane converges faster in training, and performs more effectively in handling self-occlusions and more efficiently in rendering.</li> 
-
-          </ul>  
+            <li> <b>Surface-based vs. Volumetric Motion Modeling.</b> We compare Surface-based and Volumetric triplane in motion modeling, and illustrate that Surface-based triplane converges faster in training, and performs more effectively in handling self-occlusions and more efficiently in rendering images.</li> 
           
-
+          </ul>  
 
         </p>
       </div>
@@ -186,7 +187,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p style="font-size: 14pt;">
-            Dynamic human rendering from video sequences has achieved remarkable progress by formulating the rendering as a mapping from static poses to human images. However, existing methods focus on the human appearance reconstruction of every single frame while the temporal motion relations are not fully explored. In this paper, we propose <b>a new 4D motion modeling paradigm, SurMo, that jointly models the temporal dynamics and human appearances in a unified framework </b> with three key designs: <b>1) Surface-based motion encoding</b> that models 4D human motions with an efficient compact surface-based triplane. It encodes both spatial and temporal motion relations on the dense surface manifold of a statistical body template, which inherits body topology priors for generalizable novel view synthesis with sparse training observations. <b>2) Physical motion decoding</b> that is designed to encourage physical motion learning by decoding the motion triplane features at timestep t to predict both spatial derivatives and temporal derivatives at the next timestep t+1 in the training stage.  <b>3) 4D appearance decoding </b> that renders the motion triplanes into images by an efficient volumetric surface-conditioned renderer that focuses on the rendering of body surfaces with motion learning conditioning. Extensive experiments validate the state-of-the-art performance of our new paradigm and illustrate the expressiveness of surface-based motion triplanes for rendering high-fidelity view-consistent humans with fast motions and even motion-dependent shadows.
+            Dynamic human rendering from video sequences has achieved remarkable progress by formulating the rendering as a mapping from static poses to human images. However, existing methods focus on the human appearance reconstruction of every single frame while the temporal motion relations are not fully explored. In this paper, we propose <b>a new 4D motion modeling paradigm, SurMo, that jointly models the temporal dynamics and human appearances in a unified framework </b> with three key designs: <b>1) Surface-based motion encoding</b> that models 4D human motions with an efficient compact surface-based triplane. It encodes both spatial and temporal motion relations on the dense surface manifold of a statistical body template, which inherits body topology priors for generalizable novel view synthesis with sparse training observations. <b>2) Physical motion decoding</b> that is designed to encourage physical motion learning by decoding the motion triplane features at timestep t to predict both spatial derivatives and temporal derivatives at the next timestep t+1 in the training stage.  <b>3) 4D appearance decoding </b> that renders the motion triplanes into images by an efficient volumetric surface-conditioned renderer that focuses on the rendering of body surfaces with motion learning conditioning. Extensive experiments validate the state-of-the-art performance of our new paradigm and illustrate the expressiveness of surface-based motion triplanes for rendering high-fidelity view-consistent humans with <b>fast motions</b> and even <b>motion-dependent shadows</b>.
           </p>
         </div>
       </div>
@@ -268,7 +269,7 @@
 
 
 
-  <h2 class="title is-4">Render Fast Motions on     <a href="https://github.com/google/aistplusplus_api" target=&ldquo;blank&rdquo;>
+  <h2 class="title is-4">Render Fast Motions on <a href="https://github.com/google/aistplusplus_api" target=&ldquo;blank&rdquo;>
     AIST++ 
    </a> </h2>
 	<div class="columns is-centered">
