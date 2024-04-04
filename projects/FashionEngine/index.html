@@ -116,7 +116,7 @@
               </span>
 	          
 			  <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=kJ_nuzde5ko"
+                <a href="https://www.youtube.com/watch?v=cXUlzXWdjWA"
                    class="external-link button is-normal is-rounded is-dark", target=&ldquo;blank&rdquo;>
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -175,25 +175,30 @@
 </section>
 
 
-<div class="columns is-centered has-text-centered">
-  <div class="column is-full-width">
-    <h2 class="title is-3">Real-time Demo</h2>
-    <iframe width="900" height="506" src="https://www.youtube.com/embed/kJ_nuzde5ko" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-  </div>
-</div>
-
-
 <!-- static/data/app_freeview.mp4 -->
-
 <section class="section">
   <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+
+        <h2 class="title is-3">Full Video Demo (Real-time) </h2>
+        <iframe width="900" height="578" src="https://www.youtube.com/embed/cXUlzXWdjWA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <br>
+        <p style="font-size: 14pt;"><b>*Check the video chapters for easier understanding.</b></p>
+        
+        <br>
+        <br>
+
+       
+
+      </div>
+    </div>
+
 
     <!-- Method Overview. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3"> Method Overview </h2>
-
 
         <div class="columns is-centered">
           <!-- Visual Effects. -->
@@ -202,18 +207,17 @@
               <h3 class="title is-5"> 1. 3D Human Prior Learning </h3>
               <img src="static/data/prior.jpg">
               <div class="content has-text-justified">
-                <p style="font-size: 13pt;"> 1. We utilize a learned 3D human prior <i><b>Z</b></i> from a two-stage <a href="https://taohuumd.github.io/projects/StructLDM/" target=&ldquo;blank&rdquo;>StructLDM</a> approach that includes a structured autodecoder and a latent diffusion model both learned in a semantic UV latent space.</p>
+                <p style="font-size: 13pt;"> <b>1.</b> We utilize a learned 3D human prior <i><b>Z</b></i> from a two-stage <a href="https://taohuumd.github.io/projects/StructLDM/" target=&ldquo;blank&rdquo;>StructLDM</a> approach that includes a structured autodecoder and a latent diffusion model both learned in a semantic UV latent space.</p>
               </div>
               <h3 class="title is-5"> 2. Multimodality-UV Space </h3>
               <img src="static/data/m2_space.jpg">
               <div class="content has-text-justified">
-                <p style="font-size: 13pt;">2. With the learned prior <i><b>Z</b></i>, we construct a Multimodality-UV Space for controllable 3D generation/editing, including an Appearance-Canonical Space, an Appearance-UV Space, a textual Semantics-UV Space, and a geometric Shape-UV Space.</p>
+                <p style="font-size: 13pt;"><b>2.</b> With the learned prior <i><b>Z</b></i>, we construct a Multimodality-UV Space for controllable 3D generation/editing, including an Appearance-Canonical Space, an Appearance-UV Space, a textual Semantics-UV Space, and a geometric Shape-UV Space.</p>
               </div>
             </div>
           </div>
           <!--/ Visual Effects. -->
-          
-          
+                    
           <!-- Matting. -->
           <div class="column">
             <div class="columns is-centered">
@@ -221,7 +225,7 @@
                 <h3 class="title is-5"> 4. Controllable Multimodal Editing </h3>
                 <img src="static/data/editing.jpg">
                 <div class="content has-text-justified">
-                  <p style="font-size: 13pt;">4. Users are allowed to edit a generated human by inputting texts, drawing sketches, or providing an reference image for style transfer. The multimodal editing inputs can be faithfully transferred into UV space to edit the UV latent for 3D editing.</p>
+                  <p style="font-size: 13pt;"><b>4.</b> Users are allowed to edit a generated human by inputting texts, drawing sketches, or providing an reference image for style transfer. The multimodal editing inputs can be faithfully transferred into UV space to edit the UV latent for 3D editing.</p>
                 </div>
               </div>
     
@@ -233,7 +237,7 @@
       <h3 class="title is-5"> 3. Controllable Multimodal Generation </h3>
       <div class="content has-text-justified" >
         <img src="static/data/method.jpg">
-        3. Taking as inpu texts or sketches in UV space, we present Text-UV Aligned Samplers and Sketch-UV Aligned Samplers to sample latents from the learned human prior  <i><b>Z</b></i> respectively, which can be rendered into images by latent diffusion and rendering (Diff-Render). At the core of the Text-UV Aligned Samplers are the TextMatch and ShapeMatch modules that we propose for text- or sketch-aligned sampling.
+        <p style="font-size: 13pt;"> <b>3.</b> Taking as inpu texts or sketches in UV space, we present Text-UV Aligned Samplers and Sketch-UV Aligned Samplers to sample latents from the learned human prior  <i><b>Z</b></i> respectively, which can be rendered into images by latent diffusion and rendering (Diff-Render). At the core of the Text-UV Aligned Samplers are the TextMatch and ShapeMatch modules that we propose for text- or sketch-aligned sampling.</p>        
       </div>
 
 
@@ -243,6 +247,30 @@
 
 <!--/ Animation. -->
 
+
+
+  <div class="columns is-centered">
+    <div class="column is-full-width">
+      <div class="content has-text-justified">
+        <h2 class="title is-3">Sketch-based Editing Real-time Demo</h2> 
+        <p style="font-size: 14pt;"><b>* For people from Mainland China.</b></p>
+        Outline: 1. Sketch-based editing 2. Sketch-based search (Matching Style) 3. Image-based Editing 4. Shape/View Ctrl, Animation <br>
+        <br>
+        <div class="content has-text-centered">
+          <iframe src="https://onedrive.live.com/embed?resid=CD958C29FFD57DDB%213459&authkey=!ANjLWg2CkJqac44" width="900" height="578" frameborder="0" scrolling="no" allowfullscreen mute_excluded_hosts></iframe>  
+        </div>
+      
+        <h2 class="title is-3">Text-based Real-time Demo </h2>
+        <p style="font-size: 14pt;"><b>* For people from Mainland China.</b></p>
+        Outline: 1. Text-based generation/editing 2. Text-based search (Matching Style) 3. Image-based Editing <br>
+        <br>
+        <div class="content has-text-centered">
+          <iframe src="https://onedrive.live.com/embed?resid=CD958C29FFD57DDB%213460&authkey=!AFmkhDDZh1Z69Fc" width="900" height="578" frameborder="1" scrolling="no" allowfullscreen mute_excluded_hosts></iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <div class="columns is-centered">
     <div class="column is-full-width">
@@ -267,7 +295,7 @@
       archivePrefix={arXiv},
       primaryClass={cs.CV}
     }
-    @misc{hu2024structldm,
+  @misc{hu2024structldm,
       title={StructLDM: Structured Latent Diffusion for 3D Human Generation}, 
       author={Tao Hu and Fangzhou Hong and Ziwei Liu},
       year={2024},
