@@ -198,7 +198,7 @@
 
         <div class="content has-text-justified" >
           <img src="static/data/framework2.png">
-          Two-stage framework. In Stage 1, given a training dataset containing various human subject images with estimated SMPL and camera parameters distribution, an autodecoder is learned to optimize the structured latent z ∈ Z for each training subject. Each latent is rendered into a pose- and view-dependent image by a structured volumetric renderer G1 and a global style mixer (GM) G2. In Stage 2, the autodecoder parameters are frozen and the learned structured latent Z are then used to train a latent diffusion model. At inference time, latents are randomly sampled and decoded by G2 ◦ G1 for human rendering.
+          Two-stage framework. In Stage 1, given a training dataset containing various human subject images with estimated SMPL and camera parameters distribution, an auto-decoder is learned to optimize the structured latent z ∈ Z for each training subject. Each latent can be rendered into pose- and view-dependent images by a structured volumetric renderer G1 and a global style mixer (GM) G2. In Stage 2, the auto-decoder parameters are frozen and the learned structured latent Z are then used to train a latent diffusion model. At inference time, latents are randomly sampled and decoded by G2 ◦ G1 for human rendering.
         </div>
         
         <h3 class="title is-3"> Consistent Human Editing in UV-based Latent Space</h3>
