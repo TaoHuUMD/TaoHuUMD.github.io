@@ -92,7 +92,7 @@
           	
 
           <h1 class="title is-1 publication-title">HVTR++: </br> Image and Pose Driven Human Avatars using Hybrid Volumetric-Textural Rendering</h1>
-          <h3 class="title is-3 publication-title"> <a href="https://ieeexplore.ieee.org/document/10190111" target=&ldquo;blank&rdquo;>TVCG 2023 </a></h3>
+          <h3 class="title is-3 publication-title"> <a href="https://ieeexplore.ieee.org/document/10190111" target=&ldquo;blank&rdquo;>IEEE Transactions on Visualization and Computer Graphics 2023 </a></h3>
           <div class="is-size-5 publication-authors">
             <span class="author-block">              
               <a href="https://taohuumd.github.io/" target=&ldquo;blank&rdquo;>Tao Hu</a><sup>1</sup>,</span> &nbsp;&nbsp;
@@ -170,8 +170,11 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
         <h2 class="subtitle has-text-centered">
-          <b>TL;DR:</b> HVTR++ is an end-to-end system that can be driven by poses and view images (e.g., in telepresence systems) using Hybrid Volumetric-Textural Rendering (HVTR).
+          <b>TL;DR:</b> HVTR++ is a virtual telepresence system that can be driven by poses and view images and render human avatars using <a href="https://taohuumd.github.io/projects/hvtr/" target=&ldquo;blank&rdquo;>Hybrid Volumetric-Textural Rendering (HVTR)</a>.
         </h2>
+
+        <iframe width="900" height="506" src="https://www.youtube.com/embed/LE0-YpbLlkY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
         <iframe width="900" height="506" src="https://www.youtube.com/embed/RdKLfRYtg3I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
       </div>
@@ -213,7 +216,77 @@
       </div>
     </div>
 
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Applications</h2>
+
+        <div class="content has-text-justified">
+          <p style="font-size: 13pt;">
+			HVTR can render human avatars with both pose and shape control from arbitary viewpoints.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+				autoplay
+                 controls
+                 muted
+                 preload
+				 loop
+                 width="100%">
+            <source src="../hvtr/static/data/app_show.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+	<div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-4">Pose Driven Avatars</h2>
+          <p>
+            Render human avatars under different poses and viewpoints.
+          </p>
+          <video id="dollyzoom" controls muted loop playsinline height="100%">
+            <source src="../hvtr/static/data/pose_driven.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <h2 class="title is-4">Shape Editing</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              Render human avatars under different shape parameters.
+            </p>
+            <video id="matting-video" controls muted loop playsinline height="100%">
+              <source src="../hvtr/static/data/shape_editing.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+	  </div>
+
+
+
   </div>
+
+  <div>
+  </br></br>
+  </div>
+
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@ARTICLE{hu2023hvtrpp,
