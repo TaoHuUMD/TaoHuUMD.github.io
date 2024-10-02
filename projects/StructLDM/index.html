@@ -148,11 +148,14 @@
      
         <div class="content has-text-justified">               
           <p style="font-size: 13pt;">
-            <b>TL;DR:</b> StructLDM is a new paradigm (vs. existing 3D GAN) for 3D human generation from 2D image collections, with 3 key designs: a structured 2D latent space, a structured autodecoder, and a structured latent diffusion model.
+            <b>TL;DR:</b> StructLDM is a new paradigm (vs. existing 3D GAN) for 3D human generation from 2D image collections. We propose an <b>structured auto-decoder</b> to auto-decode human images/videos in different poses and from various camera viewpoints into a unified UV-aligned space, where we learn a <b>structured latent diffusion model</b> for 3D human generation.
           </p>
           <img src="static/data/teaser_pure.jpg">
           <p style="font-size: 13pt;">
           StructLDM generates diverse view-consistent humans, and supports different levels of controllable generation and editing, such as compositional generations by blending the five selected parts from a), and part-aware editing such as identity swapping, local clothing editing, 3D virtual try-on, etc. Note that the generations and editing are clothing-agnostic without clothing types or masks conditioning.
+
+
+
           </p>
         </div>
 
@@ -195,25 +198,33 @@
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3"> Method Overview </h2>
-
-        <div class="content has-text-justified" >
-          <img src="static/data/framework2.png">
-          Two-stage framework. In Stage 1, given a training dataset containing various human subject images with estimated SMPL and camera parameters distribution, an auto-decoder is learned to optimize the structured latent z ∈ Z for each training subject. Each latent can be rendered into pose- and view-dependent images by a structured volumetric renderer G1 and a global style mixer (GM) G2. In Stage 2, the auto-decoder parameters are frozen and the learned structured latent Z are then used to train a latent diffusion model. At inference time, latents are randomly sampled and decoded by G2 ◦ G1 for human rendering.
-        </div>
         
-        <h3 class="title is-3"> Consistent Human Editing in UV-based Latent Space</h3>
         <div class="content has-text-justified" id="div1">
+          <img src="static/data/MethodOverview.png">
+        </div>
+
+        <!--
+        <h3 class="title is-3"> Consistent Human Editing in UV-based Latent Space</h3>
+        
           <img src="static/data/compos_editing_2.jpg">
           <p style="font-size: 13pt;">
             StructLDM enables compositional 3D human generation and part-aware editing. Taking six body parts from a), coherent composition and blending results can be achieved in b). Using the Diff-Render procedure, part-aware editing enables lots of downstream tasks in c).
           </p>
-        </div>
-
+        -->
         
 
       </div>
     </div>
 
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h3 class="title is-3"> Consistent Human Editing in UV-based Latent Space</h3>
+    <img src="static/data/compos_editing_2.jpg">
+    <p style="font-size: 13pt;">
+      StructLDM enables compositional 3D human generation and part-aware editing. Taking six body parts from a), coherent composition and blending results can be achieved in b). Using the Diff-Render procedure, part-aware editing enables lots of downstream tasks in c).
+    </p>
+  </div>
+</div>
 
     <!--/ UBCFashion generation. -->
     <div class="columns is-centered">
