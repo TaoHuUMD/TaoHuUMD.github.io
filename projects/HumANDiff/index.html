@@ -1,8 +1,433 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Under Construction</title>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="HumANDiff: Articulated Noise Diffusion for
+Motion-Consistent Human Video Generation.">
+  <title>HumANDiff: Articulated Noise Diffusion for
+Motion-Consistent Human Video Generation.</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+
+
+
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+
+  <style type="text/css">
+    #div1{
+      width: 100%;
+      height: 100%;
+      border:#000 solid 0px;
+      margin: 50px auto;
+      /* overflow: hidden; */
+    }
+    #div1 img{
+      cursor: pointer;
+      transition: all 0.6s;
+    }
+    #div1 img:hover{
+      transform: scale(1.4);
+    }
+
+    #div1 iframe{
+      cursor: pointer;
+      transition: all 0.6s;
+    }
+    #div1 iframe:hover{
+      transform: scale(1.4);
+    }
+    </style>
+
+
 </head>
 <body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h2 class="title is-2 publication-title">HumANDiff: Articulated Noise Diffusion <br> for Motion-Consistent Human Video Generation</h2>
+
+        <!-- <h1 style="line-height:1.15; font-weight:600;">
+        HumANDiff: Articulated Noise Diffusion<br>
+        for Motion-Consistent Human Video Generation
+        </h1> -->
+          <!-- <h3 class="title is-3 publication-title"> 2026</h3> -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://taohuumd.github.io/" target=&ldquo;blank&rdquo;>Tao Hu</a>, &nbsp;&nbsp; 
+                <a href="https://varunjampani.github.io/" target=&ldquo;blank&rdquo;>Varun Jampani</a>                
+          </div>
+        </br>
+          <div class="is-size-5 publication-authors">
+            Stability AI
+            <!-- <span class="author-block"><a href="https://stability.ai/" target=&ldquo;blank&rdquo;>Stability AI</a></span> &nbsp;&nbsp;&nbsp;&nbsp;
+			<span class="author-block"></span>&nbsp;&nbsp;&nbsp;&nbsp; -->
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2604.05961"
+                   class="external-link button is-normal is-rounded is-dark" target=&ldquo;blank&rdquo;>
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+	          
+			  <!-- <span class="link-block">
+                <a href="https://taohuumd.github.io/projects/HumANDiff/"
+                   class="external-link button is-normal is-rounded is-dark", target=&ldquo;blank&rdquo;>
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://taohuumd.github.io/projects/HumANDiff/"
+                   class="external-link button is-normal is-rounded is-dark", target=&ldquo;blank&rdquo;>
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (coming soon)</span>
+                  </a>
+             </span> -->
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+     
+        <div class="content has-text-justified">               
+          <p style="font-size: 13pt;">
+            <b>TL;DR:</b> 
+            HumANDiff is a <b>model-agnostic</b> framework that generates temporally consistent human videos from a single image by modeling noise directly on the 3D human body, enabling <b>intrinsic motion control</b>. 
+            Our method produces stable motion and preserves fine-grained details (e.g., clothing and identity), outperforming prior approaches without additional motion modules.
+            
+            <!-- HumANDiff generates temporally consistent human videos from a single image by modeling noise directly on the 3D human body, enabling <b>intrinsic motion control</b>. 
+            Our method produces stable motion and preserves fine-grained details (e.g., clothing and identity), outperforming prior approaches without additional motion modules.</p> -->
+
+          <!-- HumANDiff enables motion-consistent human video generation from a single image by replacing unstructured Gaussian noise with articulated, body-aware noise on a 3D surface manifold—achieving precise motion control without extra modules. -->
+          <div class="columns is-centered">
+            <div class="column is-full-width">
+                <div class="content has-text-centered">
+                <video id="replay-video" autoplay controls muted preload loop width="90%">
+                    <source src="static/data/new/cmpID2.mp4" type="video/mp4">
+                </video>
+                </div>                
+            </div>
+            </div>
+
+          
+
+          <!-- <img src="static/data/teaser_pure.jpg">
+          <p style="font-size: 13pt;">
+          StructLDM generates diverse view-consistent humans, and supports different levels of controllable generation and editing, such as compositional generations by blending the five selected parts from a), and part-aware editing such as identity swapping, local clothing editing, 3D virtual try-on, etc. Note that the generations and editing are clothing-agnostic without clothing types or masks conditioning.
+          </p> -->
+        </div>
+
+      </div>
+    </div>
+
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+
+            <!-- <p>
+            We present HumANDiff, a framework for generating motion-consistent human videos from a single image. 
+            By modeling noise directly on the 3D human body surface, our method enables intrinsic motion control and produces temporally stable animations. 
+            Combined with joint appearance-motion learning and geometric consistency training, HumANDiff preserves fine-grained details and generalizes well to diverse clothing styles and in-the-wild scenarios, without requiring additional motion modules.
+            </p> -->
+
+          <p style="font-size: 14pt;">
+            Despite tremendous recent progress in human video generation, generative video diffusion models still struggle to capture the dynamics and physics of human motions faithfully. In this paper, we propose a new framework for human video generation, <b>HumANDiff</b>, which enhances the human motion control with three key designs: <b> 1) Articulated motion-consistent noise sampling </b> that correlates the spatiotemporal distribution of latent noise and replaces the unstructured random Gaussian noise with 3D articulated noise sampled on the dense surface manifold of a statistical human body template. It inherits body topology priors for spatially and temporally consistent noise sampling. <b> 2) Joint appearance-motion learning </b> that enhances the standard training objective of video diffusion models by jointly predicting pixel appearances and corresponding physical motions from the articulated noises. It enables high-fidelity human video synthesis, e.g., capturing motion-dependent clothing wrinkles. <b> 3) Geometric motion consistency learning </b> that enforces physical motion consistency across frames via a novel geometric motion consistency loss defined in the articulated noise space. HumANDiff enables scalable controllable human video generation by fine-tuning video diffusion models with articulated noise sampling. Consequently, our method is agnostic to diffusion model design, and requires no modifications to the model architecture. During inference, HumANDiff enables image-to-video generation within a single framework, achieving intrinsic motion control without requiring additional motion modules. Extensive experiments demonstrate that our method achieves state-of-the-art performance in rendering motion-consistent, high-fidelity humans with diverse clothing styles.
+
+          </p>
+        </div>
+      </div>
+    </div>
+
+    
+    
+
+    <!--/ Paper video. static/data/video.mp4 -->
+  </div>
+</section>
+
+
+
+<!-- static/data/app_freeview.mp4 -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method Overview. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"> Method Overview </h2>
+        
+        HumANDiff is a model-agnostic framework that achieves high-fidelity, motion-consistent human video generation through three synergistic designs. </br></br>
+
+
+        <!-- <div class="content has-text-justified" id="div1"> -->
+            <!-- HumANDiff generates motion-consistent human videos by sampling articulated noise directly on the structured 3D human body surface. </br></br> -->
+          <img src="static/data/new/framework.png"> </br></br>
+
+
+          <div class="columns">
+      <div class="column">
+        <h3 class="title is-4">Core Technical Designs</h3>
+        <ul>
+          <li>
+            <strong>Articulated Noise Sampling</strong>: Correlates the spatiotemporal distribution of latent noise by sampling on the dense surface manifold of a human body template (e.g., SMPL).
+          </li>
+          <li>
+            <strong>Joint Appearance-Motion Learning (JAML)</strong>: Enhances training by jointly predicting pixel appearances and physical motions via a <strong>Motion Decoder</strong>.
+          </li>
+          <li>
+            <strong>Geometric Motion Consistency Learning (GMCL)</strong>: Enforces physical motion consistency across frames using a novel geometric loss defined in the articulated noise space.
+          </li>
+        </ul>
+      </div>
+
+      <div class="column">
+        <h3 class="title is-4">Key Advantages</h3>
+        <div class="notification is-light">
+          <ul>
+            <li>
+              <strong>Intrinsic Motion Control</strong>: Enables controllable human animation within a single framework without requiring additional motion modules or adapters.
+            </li>
+            <li>
+              <strong>Model-Agnostic & Efficient</strong>: Requires no modifications to the base model architecture (e.g., CogVideoX, Wan), maintaining the same memory and runtime overhead.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+<!-- 
+          <p>
+HumANDiff is a model-agnostic framework for motion-consistent human video generation. 
+As illustrated in Fig. 2, it introduces articulated noise on the 3D human body surface to enable intrinsic motion control within a unified diffusion framework.
+</p>
+
+<p>
+The framework consists of three key components:
+</p>
+
+<ul>
+  <li>
+    <strong>Articulated Noise Sampling:</strong>
+    Samples noise on the dense 3D body surface (e.g., SMPL) to establish spatiotemporal coherence in the latent space.
+  </li>
+
+  <li>
+    <strong>Joint Appearance-Motion Learning (JAML):</strong>
+    Improves motion fidelity by jointly modeling visual appearance and physical motion through a Motion Decoder.
+  </li>
+
+  <li>
+    <strong>Geometric Motion Consistency Learning (GMCL):</strong>
+    Enforces physically consistent motion across frames via a geometric loss defined in the articulated noise space.
+  </li>
+</ul>
+
+<p>
+This design enables <strong>intrinsic motion control</strong> while remaining efficient and model-agnostic, without requiring additional motion modules.
+</p> -->
+
+            <!-- HumANDiff is a model-agnostic framework that enables motion-consistent human video generation through three synergistic designs: -->
+
+
+        <!-- <ul>
+            <li>
+              <strong>Articulated Noise Sampling</strong>: Correlates the spatiotemporal distribution of latent noise by sampling on the dense surface manifold of a human body template (e.g., SMPL).
+            </li>
+            <li>
+              <strong>Joint Appearance-Motion Learning (JAML)</strong>: Enhances training by jointly predicting pixel appearances and physical motions via a <strong>Motion Decoder</strong>.
+            </li>
+            <li>
+              <strong>Geometric Motion Consistency Learning (GMCL)</strong>: Enforces physical motion consistency across frames using a novel geometric loss defined in the articulated noise space.
+            </li>
+            <li>
+              <strong>Model-Agnostic & Efficient</strong>: Operates within a single framework without additional motion modules or increased runtime.
+            </li>
+          </ul>
+
+        <li><strong>Intrinsic motion control:</strong> 
+        The framework enables controllable human animation without requiring additional motion modules.</li>
+        </ul>
+         -->
+
+      </div>
+    </div>
+
+    <!-- <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h3 class="title is-3"> Consistent Human Editing in UV-based Latent Space</h3>
+    <img src="static/data/compos_editing_2.jpg">
+    <p style="font-size: 13pt;">
+      StructLDM enables compositional 3D human generation and part-aware editing. Taking six body parts from a), coherent composition and blending results can be achieved in b). Using the Diff-Render procedure, part-aware editing enables lots of downstream tasks in c).
+    </p>
+  </div>
+</div> -->
+
+    <!--/ UBCFashion generation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width"> 
+        <h2 class="title is-3">Comparisons </h2>
+        Unlike prior methods that rely on additional motion adapters, HumANDiff achieves comparable or better results within a unified framework. </br></br>
+        <div class="content has-text-centered">
+          <video id="replay-video" autoplay controls muted preload loop width="100%">
+            <source src="static/data/new/cmpID1.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+      <div class="columns is-centered">
+            <div class="column is-full-width">
+                <div class="content has-text-centered">
+                <video id="replay-video" autoplay controls muted preload loop width="80%">
+                    <source src="static/data/new/cmpAA.mp4" type="video/mp4">
+                </video>
+                </div>
+        </div>
+        </div>
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Insight</h2>
+        Replacing 2D optical flow with articulated 3D noise warping leads to significantly more consistent human motion generation, even <b>without additional training</b>.
+        <div class="content has-text-centered">
+          <video id="replay-video" autoplay controls muted loop width="100%">
+            <source src="static/data/new/warping.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+     <!--/ Compositional generation. -->
+     <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Generalization</h2>
+        Our method, trained on a limited set of fashion videos, generalizes well to unseen out-of-domain data and synthesizes human videos with novel poses from a single image across diverse clothing styles (e.g., DeepFashion) and in-the-wild backgrounds. </br> </br>
+        <div class="content has-text-centered">
+          <video id="replay-video" autoplay controls muted loop width="100%">
+            <source src="static/data/new/df.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video" autoplay controls muted loop width="80%">
+            <source src="static/data/new/wild.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+  
+
+
+  </div>
+</br></br>
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>    
+    If you find this project useful for your research, please cite the following:
+
+    <pre>
+  @misc{hu2026humandiff,
+      title={HumANDiff: Articulated Noise Diffusion for Motion-Consistent Human Video Generation}, 
+      author={Tao Hu and Varun Jampani},
+      year={2026},
+      eprint={2604.05961},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+  }</pre>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+		  For questions and clarifications please get in touch with: taohu.cs [at] gmail.com.
+		  </p>
+		  <p>
+          The website template is borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">nerfies</a>. Thanks to the original authors.</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
